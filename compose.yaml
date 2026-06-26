@@ -1,0 +1,43 @@
+services:
+  app:
+    build:
+      context: .
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    ports:
+      - "8001:8000"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: fiberops
+      DB_USERNAME: fiberops
+      DB_PASSWORD: fiberops
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: fiberops
+      POSTGRES_USER: fiberops
+      POSTGRES_PASSWORD: fiberops
+    ports:
+      - "5432:5432"
+    volumes:
+      - fiberops_pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  fiberops_pgdata:
+
