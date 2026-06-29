@@ -1,27 +1,80 @@
-*.log
-.DS_Store
+# Laravel specific
 .env
 .env.backup
 .env.production
-.phpactor.json
 .phpunit.result.cache
-/.codex
-/.cursor/
-/.idea
-/.nova
-/.phpunit.cache
-/.vscode
-/.zed
-/auth.json
-/node_modules
+
+# Vendor dependencies
+/vendor/
+
+# Node dependency directories
+/node_modules/
+
+# Build files
 /public/build
 /public/fonts-manifest.dev.json
 /public/hot
 /public/storage
+/storage/framework/cache/data/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/framework/testing/
+
+# Log files
+*.log
+/storage/logs/*.log
+
+# Keys
 /storage/*.key
+
+# Cache and temporary files
 /storage/pail
-/vendor
+
+# User-uploaded files (if applicable)
+/storage/app/public
+/storage/app/uploads/
+
+# Testing and coverage
+/.phpunit.cache/
+/coverage
+
+# Local configuration
+/config/local/
+
+# Database dumps
+*.sql
+*.sqlite
+
+# Backup files
+*~
+*.bak
+*.tmp
+
+# IDE and editor files
+/.codex
+/.cursor/
+/.idea
+/.nova
+/.vscode
+/.zed
 _ide_helper.php
-Homestead.json
-Homestead.yaml
+.phpintel
+*.swp
+*.swo
+
+# Dependency files
+/auth.json
+composer.phar
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+$RECYCLE.BIN/
+.AppleDouble
+.LSOverride
+Desktop.ini
